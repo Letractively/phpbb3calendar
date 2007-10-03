@@ -1,8 +1,38 @@
 <?php
+/**
+*
+* common [English]
+*
+* @package language
+* @version $Id: calendar.php,v ALPHA 3 2007/10/02 12:00:00 jcc264 Exp $
+* @copyright (c) 2007 M and J Media 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+*
+*/
+
+/**
+* DO NOT CHANGE
+*/
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
+// DEVELOPERS PLEASE NOTE
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a string contains only two placeholders which are used to wrap text
+// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ » “ ” …
+//
 
 $lang = array_merge($lang, array(
  
@@ -29,48 +59,6 @@ $lang = array_merge($lang, array(
 			
 		'month'=> array(
 			1 => 'Jan',
-			2 => 'Feb', 
-			3 => 'Mar',
-			4 => 'Apr',
-			5 => 'May', 
-			6 => 'Jun', 
-			7 => 'Jul', 
-			8 => 'Aug', 
-			9 => 'Sep', 
-			10 => 'Oct', 
-			11 => 'Nov', 
-			12 => 'Dec',
-		), 
-
-		'long_month'=> array(
-			1 => 'January',
-			2 => 'February', 
-			3 => 'March',
-			4 => 'April',
-			5 => 'May', 
-			6 => 'June', 
-			7 => 'July', 
-			8 => 'August', 
-			9 => 'September', 
-			10 => 'October', 
-			11 => 'November', 
-			12 => 'December',
-		), 
-	),
-
-'calendar_add_event' 		=> 'Add Event',
-'calendar_delete_event' 	=> 'Delete Event',
-'calendar_delete_warn'		=> 'Once deleted the event cannot be recovered',
-'calendar_event_name' 		=> 'Event Name',
-'calendar_event_desc'		=> 'Event Description',
-'calendar_event_desc_exp'	=> 'Enter your event description here, it may contain no more than 255 characters',
-'calendar_event_end'		=> 'Event End',
-'calendar_event_start'		=> 'Event Start',
-'calendar_upcoming_event' 	=> 'Upcoming Events',
-
-));
-
-?>',
 			2 => 'Feb', 
 			3 => 'Mar',
 			4 => 'Apr',
