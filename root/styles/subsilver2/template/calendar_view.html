@@ -1,0 +1,124 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- BEGIN event_row -->
+<table class="tablebg" width="100%" cellspacing="1">
+	<!-- IF event_row.S_FIRST_ROW -->
+		<tr>
+			<th>{L_AUTHOR}</th>
+			<th>Event</th>
+		</tr>
+	<!-- ENDIF -->
+	<!-- IF event_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+			<td align="center" valign="middle">
+				<b>{event_row.AUTHOR}</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+					<td class="gensmall" width="100%"><b>{L_POST_SUBJECT}:</b> {event_row.NAME} <b>{L_POSTED}:</b> {event_row.START_TIME}&nbsp;{event_row.START_DATE}</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<!-- IF event_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+			<!-- IF event_row.ONLINE_IMG -->
+				<tr>
+					<td>{event_row.ONLINE_IMG}</td>
+				</tr>
+			<!-- ENDIF -->
+			<!-- IF event_row.RANK_TITLE -->
+				<tr>
+					<td class="postdetails">{event_row.RANK_TITLE}</td>
+				</tr>
+			<!-- ENDIF -->
+			<!-- IF event_row.RANK_IMG -->
+				<tr>
+					<td>{event_row.RANK_IMG}</td>
+				</tr>
+			<!-- ENDIF -->
+			<!-- IF event_row.POSTER_AVATAR -->
+				<tr>
+					<td>{event_row.POSTER_AVATAR}</td>
+				</tr>
+			<!-- ENDIF -->
+				</table>
+
+				<span class="postdetails">
+					<!-- IF event_row.POSTER_JOINED --><br /><b>{L_JOINED}:</b> {event_row.POSTER_JOINED}<!-- ENDIF -->
+					<!-- IF event_row.POSTER_POSTS != '' --><br /><b>{L_POSTS}:</b> {event_row.POSTER_POSTS}<!-- ENDIF -->
+					<!-- IF event_row.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {event_row.POSTER_FROM}<!-- ENDIF -->
+				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+						<div class="postbody">{event_row.DESC}</div>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- IF postrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+			<td class="profile"><strong><a href="#wrapheader">{L_BACK_TO_TOP}</a></strong></td>
+			<td>
+            
+            	<!-- IF event_row.U_PM --><a href="{event_row.U_PM}">{PM_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_EMAIL --><a href="{event_row.U_EMAIL}">{EMAIL_IMG}</a>&nbsp;<!-- ENDIF -->
+            	<!-- IF event_row.U_WWW --><a href="{event_row.U_WWW}">{WWW_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_MSN --><a href="{event_row.U_MSN}">{MSN_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_ICQ --><a href="{event_row.U_ICQ}">{ICQ_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_YIM --><a href="{event_row.U_YIM}">{YIM_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_AIM --><a href="{event_row.U_AIM}">{AIM_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.U_JABBER --><a href="{event_row.U_JABBER}" onclick="popup('{event_row.U_JABBER}', 550, 320); return false;">{JABBER_IMG}</a>&nbsp;<!-- ENDIF -->
+                
+                
+                
+                <!-- IF event_row.S_EDIT --><a href="calendar_post.php?event_id={event_row.EVENT_ID}">{EDIT_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF event_row.S_DELETE --><a href="calendar_post.php?event_id={event_row.EVENT_ID}&delete=1">{DELETE_IMG}</a>&nbsp;<!-- ENDIF -->
+            </td>
+		</tr>
+	
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<!-- END event_row -->
+
+<!-- IF S_NO_EVENTS -->
+<table>
+<tr>
+	<td colspan="4" align="center">There are No Events Today</td>
+</tr>
+<!-- ENDIF -->
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<th width="100%" colspan="2">Birthdays for {I_MONTH}/{I_DAY}/{I_YEAR}</th>
+<tr> 
+	<td width=55% class="row3"><b>Name</b></td>
+	<td width=15% class="row3"><b>Age</b></td>
+</tr>
+<!-- BEGIN birthday_row -->
+<tr> 
+	<td class="row1">{birthday_row.USERNAME}</td>
+	<td class="row1">{birthday_row.AGE}</td>
+</tr>
+<tr><td colspan="2"><br/><hr class="divider" /><br/></td></tr>
+<!-- END birthday_row -->
+<!-- IF S_NO_BIRTHDAY -->
+<tr>
+	<td colspan="2" align="center">There are No Birthdays Today</td>
+</tr>
+<!-- ENDIF -->
+</table>   
+<!-- INCLUDE overall_footer.html -->

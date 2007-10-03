@@ -1,0 +1,127 @@
+<!-- INCLUDE overall_header.html -->
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+<th class="header" width="100%" colspan="3">{L_CALENDAR_MONTH}</th>
+<tr>
+	<td align="left"><a href="{U_PREV_MONTH}" class="gen">&lt;&lt;</a></td>
+	<td align="center"><!-- IF S_NEW_EVENT --><a href="calendar_post.php"><img src="styles/subsilver2/imageset/en/button_event_new.gif"></a><!-- ENDIF --></td>
+	<td align="right"><a href="{U_NEXT_MONTH}" class="gen">&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="center" colspan="3">
+		<table width="100%" cellpadding="0" cellspacing="0" border="1">
+			<tr>
+				<td class="row1" align="center" width="14%"><b>{L_SUN}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_MON}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_TUE}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_WED}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_THU}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_FRI}</b></td>
+				<td class="row1" align="center" width="14%"><b>{L_SAT}</b></td>
+			</tr>
+			<!-- BEGIN calendar_week -->
+			<tr>
+				<td class="row1" align="center">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tr>
+							<td height="15" class="row3">
+								{calendar_week.DAY0}
+							</td>
+						</tr>
+						<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY0_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY1}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY1_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY2}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY2_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY3}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY3_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY4}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY4_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY5}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY5_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>															
+					<td class="row1" align="center">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td height="15" class="row3">
+									{calendar_week.DAY6}
+								</td>
+							</tr>
+							<tr>
+								<td NOWRAP valign="top" class="row1">
+									{calendar_week.DAY6_EVENTS}
+								</td>
+							</tr>
+						</table>
+					</td>					
+				</tr>
+				<!-- END calendar_week -->
+			</table>
+		</td>
+	</tr>
+</table>   
+<!-- INCLUDE overall_footer.html -->
