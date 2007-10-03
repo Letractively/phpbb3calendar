@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.1.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en">phpbb3 Calendar</title>
+    <author-group>
+      <author>
+        <realname>John Cottage</realname>
+        <email>jcc264@gmail.com</email>
+        <username>jcc264</username>
+        <homepage>http://www.theworstwebsiteever.org</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version stage="alpha">
+      <major>0</major>
+      <minor>0</minor>
+      <revision>3</revision>
+    </mod-version>
+    <installation>
+      <level>intermediate</level>
+      <time>609</time>
+      <target-version>
+        <target-primary>3.0.0</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+        <target-revision allow="exact">0</target-revision>
+      </target-version>
+    </installation>
+    <history>
+      <entry>
+        <date>2007-10-02T00:00:00-04:00</date>
+        <rev-version stage="alpha">
+          <major>0</major>
+          <minor>0</minor>
+          <revision>3</revision>
+        </rev-version>
+        <changelog lang="en">
+          <change>Added MODX and startingh to track stuff</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-10-03T00:00:00-04:00</date>
+        <rev-version stage="alpha">
+          <major>0</major>
+          <minor>0</minor>
+          <revision>4</revision>
+        </rev-version>
+        <changelog lang="en">
+          <change>Bug in functions_calendar.php found by Highway311</change>
+        </changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <open src="language/en/acp/permissions_phpbb.php">
+      <edit>
+        <find><![CDATA[?>]]></find>
+        <action type="before-add"><![CDATA[//CAL MOD
+// Adding new category for permisions
+$lang['permission_cat']['calendar'] = 'Calendar Management';
+
+// Adding the permissions
+$lang = array_merge($lang, array(
+    'acl_u_view_event'    => array('lang' => 'Can user view events', 'cat' => 'calendar'),
+    'acl_u_new_event'     => array('lang' => 'Can user post a new event', 'cat' => 'calendar'),
+    'acl_u_edit_event'    => array('lang' => 'Can user edit their own event', 'cat' => 'calendar'),
+    'acl_u_delete_event'  => array('lang' => 'Can user delete their oen event', 'cat' => 'calendar'),
+
+    'acl_m_edit_event'    => array('lang' => 'Can edit other events', 'cat' => 'calendar'),
+    'acl_m_delete_event'  => array('lang' => 'Can delete other events', 'cat' => 'calendar'),
+   
+    'acl_a_edit_event'    => array('lang' => 'Can edit other events', 'cat' => 'calendar'),
+    'acl_a_delete_event'  => array('lang' => 'Can delete other events', 'cat' => 'calendar'),
+));]]></action>
+      </edit>
+    </open>
+    <open src="includes/functions.php">
+      <edit>
+        <find><![CDATA['FAQ' => 'FAQ',]]></find>
+        <action type="after-add"><![CDATA[		'U_CALENDAR' 			=> append_sid("{$phpbb_root_path}calendar.$phpEx"),]]></action>
+      </edit>
+    </open>
+    <open src="styles/prosilver/template/overall_header.html">
+      <edit>
+        <find><![CDATA[<ul class="linklist rightside">]]></find>
+        <action type="after-add"><![CDATA[<li class="icon-calendar"><a href="{U_CALENDAR}" title="{L_CALENDAR}">{L_CALENDAR}</a></li>]]></action>
+      </edit>
+    </open>
+    <open src="language/en/common.php">
+      <edit>
+        <find><![CDATA['FAQ' => 'FAQ',]]></find>
+        <action type="after-add"><![CDATA['CALENDAR' => 'Calendar',]]></action>
+      </edit>
+    </open>
+    <open src="styles/prosilver/theme/bidi.css">
+      <edit>
+        <find>/* Icon images
+---------------------------------------- */
+.rtl .sitehome, .rtl .icon-faq, .rtl .icon-members, .rtl .icon-home, .rtl .icon-ucp, .rtl .icon-register, .rtl .icon-logout,
+.rtl .icon-bookmark, .rtl .icon-bump, .rtl .icon-subscribe, .rtl .icon-unsubscribe, .rtl .icon-pages, .rtl .icon-search {</find>
+        <inline-edit>
+          <inline-find>.rtl .icon-search</inline-find>
+          <inline-action type="after-add">, .icon-calendar</inline-action>
+        </inline-edit>
+      </edit>
+    </open>
+    <open src="styles/prosilver/theme/buttons.css">
+      <edit>
+        <find>.sitehome, .icon-faq, .icon-members, .icon-home, .icon-ucp, .icon-register, .icon-logout,
+.icon-bookmark, .icon-bump, .icon-subscribe, .icon-unsubscribe, .icon-pages, .icon-search {</find>
+        <inline-edit>
+          <inline-find>.icon-search</inline-find>
+          <inline-action type="after-add">, .icon-calendar</inline-action>
+        </inline-edit>
+      </edit>
+    </open>
+    <open src="styles/prosilver/theme/colours.css">
+      <edit>
+        <find>/* Icon images
+---------------------------------------- */
+.sitehome { background-image: url("{T_THEME_PATH}/images/icon_home.gif"); } </find>
+        <action type="after-add">.icon-calendar { background-image: url("{T_THEME_PATH}/images/icon_calendar.gif"); }</action>
+      </edit>
+    </open>
+    <diy-instructions lang="">In your internet browser navigate to the install directory. You should get a message that says that the mod has been installed. Then delete the install directory and all files in it.</diy-instructions>
+  </action-group>
+</mod>
